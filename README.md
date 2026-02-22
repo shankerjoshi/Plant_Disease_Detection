@@ -20,3 +20,4 @@ cv2
 os
 matplotlib
 scipy
+streamlit
