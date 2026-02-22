@@ -12,7 +12,7 @@ project/
 |--plant_app1.py
 |--Plant_model.keras
 
-# required libraries to run and test the code
+# Required libraries 
 numpy
 pandas
 tensorflow
