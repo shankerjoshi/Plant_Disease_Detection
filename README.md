@@ -1,66 +1,93 @@
-# 🌿 Plant Disease Detection using CNN
+# 🌿 Plant Disease Detection
 
-This project detects plant diseases from leaf images using a **Convolutional Neural Network (CNN)** trained on the **PlantVillage dataset**.  
-The model uses **MobileNetV2 (Transfer Learning)** as the base model to improve accuracy and efficiency.
+A deep learning project that detects diseases in plant leaves from images. Upload a photo of a leaf and the model tells you what disease it has (or if it's healthy).
+
+Built using a CNN with MobileNetV2 transfer learning, trained on the PlantVillage dataset. Comes with a Streamlit web app so you can actually use it without touching any code.
+
+---
 
 ## 📂 Project Structure
 
-```text
-project/
-│
-├── dataset/
-│   ├── train/
-│   ├── test/
-│   └── validation/
-│
-├── Plant_model_1.ipynb   # Model training notebook
-├── plant_app1.py         # Streamlit web app
-├── Plant_model.keras     # Trained model
+```
+Plant_Disease_Detection/
+├── Plant_model_1.ipynb     # notebook used to train the model
+├── plant_app1.py           # Streamlit web app
+├── Plant_model.keras       # trained model (ready to use)
+├── requirements.txt        # dependencies
+├── .gitignore
 └── README.md
 ```
 
+The `dataset/` folder is not included here — you need to download it separately (see below).
 
-## 📊 Dataset
+---
 
-Dataset used: **PlantVillage**
+## ⚙️ Setup
 
-https://www.kaggle.com/datasets/moazeldsokyx/plantvillage
+### 1. Clone the repo
 
-The dataset contains images of **healthy and diseased plant leaves** used to train, validate, and test the model.
+```
+git clone https://github.com/shankerjoshi/Plant_Disease_Detection.git
+cd Plant_Disease_Detection
+```
 
-## 🧠 Model
+### 2. Install dependencies
 
-- Base Model: **MobileNetV2**
-- Technique: **Transfer Learning**
-- Framework: **TensorFlow / Keras**
+```
+pip install -r requirements.txt
+```
 
-## ⚙️ Required Libraries
+### 3. 📊 Download the dataset (only needed if you want to retrain)
 
-numpy
-pandas
-tensorflow
-opencv-python (cv2)
-matplotlib
-scipy
-streamlit
-os
+Dataset: [PlantVillage on Kaggle](https://www.kaggle.com/datasets/moazeldsokyx/plantvillage)
 
+After downloading, place it like this:
 
-Install dependencies : pip install numpy pandas tensorflow opencv-python matplotlib scipy streamlit
+```
+dataset/
+├── train/
+├── test/
+└── validation/
+```
 
+---
 
-## 🚀 Run the Project
+## 🚀 Running the app
 
-1. Train the model using:
-Plant_model_1.ipynb
+The trained model is already included (`Plant_model.keras`), so you can run the app directly without retraining:
 
-
-2. Run the Streamlit app:
+```
 streamlit run plant_app1.py
+```
 
+Then open the link it gives you in your browser, upload a leaf image, and it will predict the disease.
 
-3. Upload a plant leaf image to get the **disease prediction**.
+---
 
-## 👨‍💻 Author
+## 🧠 Retraining the model
 
-Deep Learning project for **plant disease classification using CNN**.
+If you want to train it yourself, open the notebook:
+
+```
+jupyter notebook Plant_model_1.ipynb
+```
+
+Make sure the dataset is downloaded and placed in the `dataset/` folder first. Run all the cells in order — it will save a new `Plant_model.keras` at the end.
+
+---
+
+## 🛠️ Tech used
+
+- TensorFlow / Keras
+- MobileNetV2 (transfer learning)
+- Streamlit
+- OpenCV
+- PlantVillage dataset
+
+---
+
+## 📝 Notes
+
+- The model works best with clear, well-lit photos of individual leaves
+- Images that are blurry, have multiple leaves, or show only stems may give inaccurate results
+- Dataset is not included in the repo due to its size — download it from the Kaggle link above
